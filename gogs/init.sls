@@ -5,4 +5,3 @@ include:
   - services.gogs.installed
   - services.gogs.configured
   - services.gogs.running
-  - services.gogs.nginx

@@ -3,3 +3,4 @@
 gogs-installed:
   pkg.installed:
     - name: gogs
+    - version: {{ salt['pillar.get']('gogs:version', 'None') }}
