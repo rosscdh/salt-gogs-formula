@@ -1,0 +1,11 @@
+# vim: ft=yaml softtabstop=2 tabstop=2 shiftwidth=2 expandtab autoindent
+
+gogs:
+  hostname: gogs.example.com
+  version: 0.9.0-1457315356.0ea0c5e.trusty
+  nginx:
+    proxy:
+      ip: 127.0.0.1
+      port: 3000
+    ssl_cert: /etc/nginx/ssl/nginx.pem
+    ssl_key: /etc/nginx/ssl/nginx.pem
