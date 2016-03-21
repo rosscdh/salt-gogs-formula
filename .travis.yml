@@ -13,6 +13,7 @@ install:
   - sudo mkdir -p /srv/salt/states
   - sudo cp -r . /srv/salt/states
   - sudo cp .travis/minion /etc/salt/minion
+  - sudo cp .travis/top.sls /srv/salt/sates/
   - sudo service salt-minion restart
 
   # Additional debug help
