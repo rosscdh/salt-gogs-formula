@@ -19,3 +19,13 @@ gogs-installed:
     - recurse:
        - user
        - group
+  file.directory:
+    - name: /var/log/gogs/
+    - user: git
+    - group: adm
+    - dir_mode: 750
+    - makedirs: True
+    - recurse:
+      - user
+      - group
+      - mode

@@ -9,10 +9,13 @@ stop on shutdown
 
 console output
 
+setuid git
+setgid git
+
 env USER=git
 
 script
   export HOME=/home/$USER
   chdir /opt/gogs
-  exec ./gogs web > /var/log/gogs.log
+  exec ./gogs web > /var/log/gogs/web.log
 end script
