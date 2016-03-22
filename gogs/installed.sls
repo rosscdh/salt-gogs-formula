@@ -12,3 +12,10 @@ gogs-installed:
     - source_hash: {{ salt['pillar.get']('gogs:hash') }}
     - archive_format: tar
     - if_missing: /opt/gogs/
+  file.directory:
+    - name: /opt/gogs/
+    - user: git
+    - group: git
+    - recurse:
+       - user
+       - group
