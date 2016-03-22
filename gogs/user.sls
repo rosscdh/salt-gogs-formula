@@ -11,7 +11,7 @@ gogs-user:
     - home: /home/git
     - groups:
       - git
-      {% for group in user.get('gogs:groups', []) -%}
+      {% for group in salt['pillar.get']('gogs:groups', []) -%}
       - {{ group }}
       {% endfor %}
     - require:
