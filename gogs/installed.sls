@@ -7,7 +7,7 @@ gogs-requirements:
 
 gogs-installed:
   archive.extracted:
-    - name: /opt/gogs/
+    - name: /opt/
     - source: https://dl.gogs.io/gogs_v{{ salt['pillar.get']('gogs:version') }}_linux_amd64.tar.gz
     - source_hash: {{ salt['pillar.get']('gogs:hash') }}
     - archive_format: tar
