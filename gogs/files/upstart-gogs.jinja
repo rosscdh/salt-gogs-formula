@@ -1,0 +1,18 @@
+#
+#  upstart script for gogs (Go Git Service)
+#
+
+description "gogs upstart script"
+
+start on (local-filesystems and net-device-up)
+stop on shutdown
+
+console output
+
+env USER=git
+
+script
+  export HOME=/home/$USER
+  chdir /opt/gogs
+  exec ./gogs web > /var/log/gogs.log
+end script
