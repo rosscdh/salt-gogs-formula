@@ -10,7 +10,7 @@ gogs-server-default_vhost_absent:
 
 /etc/nginx/sites-available/gogs.conf:
   file.managed:
-    - source: salt://services/nginx/files/nginx-vhost.conf.jinja
+    - source: salt://gogs/files/nginx-vhost.conf.jinja
     - template: jinja
     - context:
         proxy_ip: {{ salt['pillar.get']('gogs:nginx:proxy:ip', '127.0.0.1') }}
@@ -22,9 +22,9 @@ gogs-server-default_vhost_absent:
       - pkg: nginx
       - service: gogs
     - require_in:
-      - service: nginx
+      - service: gogs-nginx-running
     - watch_in:
-      - service: nginx
+      - service: gogs-nginx-running
 
 /etc/nginx/sites-enabled/gogs.conf:
   file.symlink:
@@ -34,7 +34,12 @@ gogs-server-default_vhost_absent:
       - service: gogs
       - file: /etc/nginx/sites-available/gogs.conf
     - require_in:
-      - service: nginx
+      - service: gogs-nginx-running
     - watch_in:
-      - service: nginx
+      - service: gogs-nginx-running
 
+gogs-nginx-running:
+  service.running:
+    - service: nginx
+    - require:
+      - file: /etc/nginx/sites-available/gogs.conf
