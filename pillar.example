@@ -4,6 +4,7 @@ gogs:
   hostname: gogs.example.com
   version: 0.9.13
   hash: sha1=60bade76e3a6500e419c159a67045689e6ff5a5d
+  port: 3000
   nginx:
     proxy:
       ip: 127.0.0.1
